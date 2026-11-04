@@ -194,7 +194,9 @@ export default async function Home() {
                       statusStyles[application.status]
                     }`}
                   >
-                    {application.status}
+                    {/* {application.status} */}
+                    {application.status.charAt(0) +
+                      application.status.slice(1).toLowerCase()}
                   </span>
                 </div>
               ))}
