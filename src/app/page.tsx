@@ -176,7 +176,16 @@ export default async function Home() {
                       {application.position}
                     </h4>
                     <p className="mt-1 text-sm text-slate-500">
-                      {application.company} · {application.date}
+                      {/* {application.company} · {application.date} */}
+                      {application.company} ·{" "}
+                      {new Date(application.appliedAt).toLocaleDateString(
+                        "en-US",
+                        {
+                          month: "short",
+                          day: "numeric",
+                          year: "numeric",
+                        },
+                      )}
                     </p>
                   </div>
 
