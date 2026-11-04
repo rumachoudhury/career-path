@@ -1,5 +1,6 @@
 import { BriefcaseBusiness, CheckCircle2, Clock3, XCircle } from "lucide-react";
 import Sidebar from "@/components/sidebar";
+import { prisma } from "@/lib/prisma";
 
 const applications = [
   {
@@ -35,7 +36,13 @@ const statusStyles: Record<string, string> = {
   Offer: "bg-emerald-50 text-emerald-700",
 };
 
-export default function Home() {
+export default async function Home() {
+  const applications = await prisma.jobApplication.findMany({
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
+
   return (
     <div className="flex min-h-screen bg-slate-50">
       <Sidebar />
