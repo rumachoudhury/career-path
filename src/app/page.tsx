@@ -30,10 +30,11 @@ const applications = [
 ];
 
 const statusStyles: Record<string, string> = {
-  Applied: "bg-blue-50 text-blue-700",
-  Interview: "bg-amber-50 text-amber-700",
-  Rejected: "bg-red-50 text-red-700",
-  Offer: "bg-emerald-50 text-emerald-700",
+  WISHLIST: "bg-slate-50 text-slate-700",
+  APPLIED: "bg-blue-50 text-blue-700",
+  INTERVIEW: "bg-amber-50 text-amber-700",
+  OFFERED: "bg-emerald-50 text-emerald-700",
+  REJECTED: "bg-red-50 text-red-700",
 };
 
 export default async function Home() {
