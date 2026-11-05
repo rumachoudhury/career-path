@@ -163,7 +163,7 @@ export default async function Home() {
               </div>
 
               <div className="flex h-64 items-end gap-4 border-b border-slate-100 px-2">
-                {[35, 52, 42, 68, 55, 82].map((height, index) => (
+                {/* {[35, 52, 42, 68, 55, 82].map((height, index) => (
                   <div
                     key={index}
                     className="flex flex-1 flex-col items-center justify-end gap-2"
@@ -176,7 +176,27 @@ export default async function Home() {
                       {["Jun", "Jul", "Aug", "Sep", "Oct", "Nov"][index]}
                     </span>
                   </div>
-                ))}
+                ))} */}
+
+                {monthlyActivity.map((item) => {
+                  const height = (item.count / maxMonthlyCount) * 100;
+
+                  return (
+                    <div
+                      key={item.label}
+                      className="flex flex-1 flex-col items-center justify-end gap-2"
+                    >
+                      <div
+                        className="w-full max-w-12 rounded-t-md bg-blue-500 transition hover:bg-blue-600"
+                        style={{ height: `${height}%` }}
+                      />
+
+                      <span className="text-xs text-slate-400">
+                        {item.label}
+                      </span>
+                    </div>
+                  );
+                })}
               </div>
             </div>
 
