@@ -1,6 +1,9 @@
 import { BriefcaseBusiness, CheckCircle2, Clock3, XCircle } from "lucide-react";
 import Sidebar from "@/components/sidebar";
 import { prisma } from "@/lib/prisma";
+import { connection } from "next/server";
+
+export const instant = false;
 
 const applications = [
   {
@@ -38,6 +41,8 @@ const statusStyles: Record<string, string> = {
 };
 
 export default async function Home() {
+  await connection();
+
   const applications = await prisma.jobApplication.findMany({
     orderBy: {
       createdAt: "desc",
