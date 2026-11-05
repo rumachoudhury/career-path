@@ -77,30 +77,35 @@ export default async function Home() {
           </div>
 
           <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-            <StatCard
+            {/* <StatCard
               title="Total Applications"
               value="24"
               description="All applications"
               icon={<BriefcaseBusiness size={20} />}
+            /> */}
+            <StatCard
+              title="Total Applications"
+              value={String(totalApplications)}
+              description="All applications"
+              icon={<BriefcaseBusiness size={20} />}
             />
-
             <StatCard
               title="Interviews"
-              value="6"
+              value={String(interviews)}
               description="Upcoming & completed"
               icon={<Clock3 size={20} />}
             />
 
             <StatCard
               title="Offers"
-              value="2"
+              value={String(offers)}
               description="Offers received"
               icon={<CheckCircle2 size={20} />}
             />
 
             <StatCard
               title="Rejected"
-              value="5"
+              value={String(rejected)}
               description="Applications rejected"
               icon={<XCircle size={20} />}
             />
