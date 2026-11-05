@@ -56,6 +56,34 @@ export default async function Home() {
     (app) => app.status === "REJECTED",
   ).length;
 
+  const monthlyActivity = Array.from({ length: 6 }, (_, index) => {
+    const date = new Date();
+
+    date.setDate(1);
+    date.setMonth(date.getMonth() - (5 - index));
+
+    const month = date.getMonth();
+    const year = date.getFullYear();
+
+    const count = applications.filter((application) => {
+      const appliedDate = new Date(application.appliedAt);
+
+      return (
+        appliedDate.getMonth() === month && appliedDate.getFullYear() === year
+      );
+    }).length;
+
+    return {
+      label: date.toLocaleString("en-US", { month: "short" }),
+      count,
+    };
+  });
+
+  const maxMonthlyCount = Math.max(
+    ...monthlyActivity.map((item) => item.count),
+    1,
+  );
+
   return (
     <div className="flex min-h-screen bg-slate-50">
       <Sidebar />
