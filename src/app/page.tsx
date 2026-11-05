@@ -44,6 +44,18 @@ export default async function Home() {
     },
   });
 
+  const totalApplications = applications.length;
+
+  const interviews = applications.filter(
+    (app) => app.status === "INTERVIEW",
+  ).length;
+
+  const offers = applications.filter((app) => app.status === "OFFERED").length;
+
+  const rejected = applications.filter(
+    (app) => app.status === "REJECTED",
+  ).length;
+
   return (
     <div className="flex min-h-screen bg-slate-50">
       <Sidebar />
