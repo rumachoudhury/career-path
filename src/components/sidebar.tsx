@@ -1,3 +1,8 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
 import {
   BarChart3,
   BriefcaseBusiness,
@@ -10,32 +15,34 @@ import {
 const navigation = [
   {
     name: "Dashboard",
+    href: "/",
     icon: LayoutDashboard,
-    active: true,
   },
   {
     name: "My Applications",
+    href: "/applications",
     icon: BriefcaseBusiness,
-    active: false,
   },
   {
     name: "Companies",
+    href: "/companies",
     icon: Building2,
-    active: false,
   },
   {
     name: "Interviews",
+    href: "/interviews",
     icon: CalendarDays,
-    active: false,
   },
   {
     name: "Analytics",
+    href: "/analytics",
     icon: BarChart3,
-    active: false,
   },
 ];
 
 export default function Sidebar() {
+  const pathname = usePathname();
+
   return (
     <aside className="hidden w-64 shrink-0 border-r border-slate-200 bg-white md:flex md:flex-col">
       <div className="flex h-20 items-center border-b border-slate-200 px-6">
@@ -51,18 +58,24 @@ export default function Sidebar() {
         {navigation.map((item) => {
           const Icon = item.icon;
 
+          const isActive =
+            item.href === "/"
+              ? pathname === "/"
+              : pathname === item.href || pathname.startsWith(`${item.href}/`);
+
           return (
-            <button
+            <Link
               key={item.name}
+              href={item.href}
               className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition ${
-                item.active
+                isActive
                   ? "bg-blue-50 text-blue-600"
                   : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
               }`}
             >
               <Icon size={19} />
               {item.name}
-            </button>
+            </Link>
           );
         })}
       </nav>
