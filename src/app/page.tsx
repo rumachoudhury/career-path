@@ -210,11 +210,40 @@ export default async function Home() {
                 Application Status
               </h3>
 
-              <div className="mt-6 space-y-5">
+              {/* <div className="mt-6 space-y-5">
                 <ProgressItem label="Applied" value={11} total={24} />
                 <ProgressItem label="Interview" value={6} total={24} />
                 <ProgressItem label="Offer" value={2} total={24} />
                 <ProgressItem label="Rejected" value={5} total={24} />
+              </div> */}
+
+              <div className="mt-6 space-y-5">
+                <ProgressItem
+                  label="Applied"
+                  value={
+                    applications.filter((app) => app.status === "APPLIED")
+                      .length
+                  }
+                  total={totalApplications}
+                />
+
+                <ProgressItem
+                  label="Interview"
+                  value={interviews}
+                  total={totalApplications}
+                />
+
+                <ProgressItem
+                  label="Offer"
+                  value={offers}
+                  total={totalApplications}
+                />
+
+                <ProgressItem
+                  label="Rejected"
+                  value={rejected}
+                  total={totalApplications}
+                />
               </div>
             </div>
           </section>
