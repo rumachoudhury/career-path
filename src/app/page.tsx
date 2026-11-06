@@ -2,6 +2,7 @@ import { BriefcaseBusiness, CheckCircle2, Clock3, XCircle } from "lucide-react";
 import Sidebar from "@/components/sidebar";
 import { prisma } from "@/lib/prisma";
 import { connection } from "next/server";
+import Link from "next/link";
 
 export const instant = false;
 
@@ -105,9 +106,12 @@ export default async function Home() {
               </h2>
             </div>
 
-            <button className="rounded-lg bg-blue-600 px-4 py-2.5 text-sm font-medium text-white shadow-sm transition hover:bg-blue-700">
+            <Link
+              href="/applications/new"
+              className="rounded-lg bg-blue-600 px-4 py-2.5 text-sm font-medium text-white shadow-sm transition hover:bg-blue-700"
+            >
               + Add Application
-            </button>
+            </Link>
           </div>
         </header>
 
