@@ -62,6 +62,7 @@ export async function POST(request: Request) {
         location: body.location || null,
         jobUrl: body.jobUrl || null,
         salary: body.salary || null,
+        status: body.status || "APPLIED",
         notes: body.notes || null,
       },
     });
