@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import Sidebar from "@/components/sidebar";
 import { prisma } from "@/lib/prisma";
 import { connection } from "next/server";
@@ -46,12 +48,19 @@ export default async function ApplicationsPage() {
               </p>
             </div>
 
-            <a
+            {/* <a
               href="/applications/new"
               className="rounded-lg bg-blue-600 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-blue-700"
             >
               + Add Application
-            </a>
+            </a> */}
+
+            <Link
+              href="/applications/new"
+              className="rounded-lg bg-blue-600 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-blue-700"
+            >
+              + Add Application
+            </Link>
           </div>
 
           <div className="overflow-hidden rounded-xl border border-slate-200 bg-white">
@@ -74,6 +83,9 @@ export default async function ApplicationsPage() {
                       <th className="px-6 py-4 font-medium">Location</th>
                       <th className="px-6 py-4 font-medium">Date Applied</th>
                       <th className="px-6 py-4 font-medium">Status</th>
+                      <th className="px-6 py-4 text-left font-medium">
+                        Actions
+                      </th>
                     </tr>
                   </thead>
 
@@ -106,6 +118,15 @@ export default async function ApplicationsPage() {
                             {application.status.charAt(0) +
                               application.status.slice(1).toLowerCase()}
                           </span>
+                        </td>
+
+                        <td className="px-6 py-4">
+                          <Link
+                            href={`/applications/${application.id}`}
+                            className="font-medium text-blue-600 hover:text-blue-700"
+                          >
+                            Edit
+                          </Link>
                         </td>
                       </tr>
                     ))}
