@@ -3,6 +3,7 @@ import Link from "next/link";
 import Sidebar from "@/components/sidebar";
 import { prisma } from "@/lib/prisma";
 import { connection } from "next/server";
+import DeleteApplicationButton from "@/components/delete-application-button";
 
 export const instant = false;
 
@@ -120,13 +121,28 @@ export default async function ApplicationsPage() {
                           </span>
                         </td>
 
-                        <td className="px-6 py-4">
+                        {/* <td className="px-6 py-4">
                           <Link
                             href={`/applications/${application.id}`}
                             className="font-medium text-blue-600 hover:text-blue-700"
                           >
                             Edit
                           </Link>
+                        </td> */}
+
+                        <td className="px-6 py-4">
+                          <div className="flex items-center gap-4">
+                            <Link
+                              href={`/applications/${application.id}`}
+                              className="font-medium text-blue-600 hover:text-blue-700"
+                            >
+                              Edit
+                            </Link>
+
+                            <DeleteApplicationButton
+                              applicationId={application.id}
+                            />
+                          </div>
                         </td>
                       </tr>
                     ))}
