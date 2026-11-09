@@ -15,13 +15,6 @@ const statusStyles: Record<string, string> = {
   REJECTED: "bg-red-50 text-red-700",
 };
 
-// export default async function ApplicationsPage() {
-//   await connection();
-
-//   const applications = await prisma.jobApplication.findMany({
-//     orderBy: { createdAt: "desc" },
-//   });
-
 type ApplicationsPageProps = {
   searchParams: Promise<{ q?: string }>;
 };
