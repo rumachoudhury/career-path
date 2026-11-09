@@ -15,10 +15,34 @@ const statusStyles: Record<string, string> = {
   REJECTED: "bg-red-50 text-red-700",
 };
 
-export default async function ApplicationsPage() {
+// export default async function ApplicationsPage() {
+//   await connection();
+
+//   const applications = await prisma.jobApplication.findMany({
+//     orderBy: { createdAt: "desc" },
+//   });
+
+type ApplicationsPageProps = {
+  searchParams: Promise<{ q?: string }>;
+};
+
+export default async function ApplicationsPage({
+  searchParams,
+}: ApplicationsPageProps) {
   await connection();
 
+  const { q } = await searchParams;
+  const query = q?.trim() || "";
+
   const applications = await prisma.jobApplication.findMany({
+    where: query
+      ? {
+          OR: [
+            { company: { contains: query, mode: "insensitive" } },
+            { position: { contains: query, mode: "insensitive" } },
+          ],
+        }
+      : undefined,
     orderBy: { createdAt: "desc" },
   });
 
