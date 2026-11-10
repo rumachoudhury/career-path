@@ -36,7 +36,7 @@ export default async function ApplicationsPage({
   const query = q?.trim() || "";
 
   const selectedStatus = validStatuses.includes(
-    status as (typeof validStatuses)[number]
+    status as (typeof validStatuses)[number],
   )
     ? (status as (typeof validStatuses)[number])
     : undefined;
@@ -51,26 +51,6 @@ export default async function ApplicationsPage({
       }),
       ...(selectedStatus && { status: selectedStatus }),
     },
-    orderBy: { createdAt: "desc" },
-  });
-
-export default async function ApplicationsPage({
-  searchParams,
-}: ApplicationsPageProps) {
-  await connection();
-
-  const { q } = await searchParams;
-  const query = q?.trim() || "";
-
-  const applications = await prisma.jobApplication.findMany({
-    where: query
-      ? {
-          OR: [
-            { company: { contains: query, mode: "insensitive" } },
-            { position: { contains: query, mode: "insensitive" } },
-          ],
-        }
-      : undefined,
     orderBy: { createdAt: "desc" },
   });
 
