@@ -80,7 +80,7 @@ export default async function ApplicationsPage({
                 {applications.length} total applications
               </p>
             </div>
-
+            {/* 
             <form action="/applications" method="GET" className="flex gap-2">
               <input
                 type="text"
@@ -96,14 +96,41 @@ export default async function ApplicationsPage({
               >
                 Search
               </button>
-            </form>
+            </form> */}
 
-            {/* <a
-              href="/applications/new"
-              className="rounded-lg bg-blue-600 px-4 py-2.5 text-sm font-medium text-white transition hover:bg-blue-700"
+            <form
+              action="/applications"
+              method="GET"
+              className="flex flex-wrap gap-2"
             >
-              + Add Application
-            </a> */}
+              <input
+                type="text"
+                name="q"
+                defaultValue={query}
+                placeholder="Search company or position..."
+                className="w-64 rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none focus:border-blue-500"
+              />
+
+              <select
+                name="status"
+                defaultValue={selectedStatus || ""}
+                className="rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none focus:border-blue-500"
+              >
+                <option value="">All Statuses</option>
+                <option value="WISHLIST">Wishlist</option>
+                <option value="APPLIED">Applied</option>
+                <option value="INTERVIEW">Interview</option>
+                <option value="OFFERED">Offered</option>
+                <option value="REJECTED">Rejected</option>
+              </select>
+
+              <button
+                type="submit"
+                className="rounded-lg bg-blue-600 px-4 py-2.5 text-sm font-medium text-white hover:bg-blue-700"
+              >
+                Search
+              </button>
+            </form>
 
             <Link
               href="/applications/new"
