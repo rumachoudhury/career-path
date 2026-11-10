@@ -16,8 +16,43 @@ const statusStyles: Record<string, string> = {
 };
 
 type ApplicationsPageProps = {
-  searchParams: Promise<{ q?: string }>;
+  searchParams: Promise<{ q?: string; status?: string }>;
 };
+
+const validStatuses = [
+  "WISHLIST",
+  "APPLIED",
+  "INTERVIEW",
+  "OFFERED",
+  "REJECTED",
+] as const;
+
+export default async function ApplicationsPage({
+  searchParams,
+}: ApplicationsPageProps) {
+  await connection();
+
+  const { q, status } = await searchParams;
+  const query = q?.trim() || "";
+
+  const selectedStatus = validStatuses.includes(
+    status as (typeof validStatuses)[number]
+  )
+    ? (status as (typeof validStatuses)[number])
+    : undefined;
+
+  const applications = await prisma.jobApplication.findMany({
+    where: {
+      ...(query && {
+        OR: [
+          { company: { contains: query, mode: "insensitive" } },
+          { position: { contains: query, mode: "insensitive" } },
+        ],
+      }),
+      ...(selectedStatus && { status: selectedStatus }),
+    },
+    orderBy: { createdAt: "desc" },
+  });
 
 export default async function ApplicationsPage({
   searchParams,
