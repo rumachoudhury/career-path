@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "JobApplication" ADD COLUMN     "interviewDate" TIMESTAMP(3),
+ADD COLUMN     "interviewTime" TEXT;
