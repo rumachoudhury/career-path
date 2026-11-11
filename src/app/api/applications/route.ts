@@ -63,6 +63,11 @@ export async function POST(request: Request) {
         jobUrl: body.jobUrl || null,
         salary: body.salary || null,
         status: body.status || "APPLIED",
+        interviewDate: body.interviewDate
+          ? new Date(`${body.interviewDate}T00:00:00`)
+          : null,
+
+        interviewTime: body.interviewTime || null,
         notes: body.notes || null,
       },
     });
