@@ -42,6 +42,8 @@ export default function EditApplicationForm({
       jobUrl: formData.get("jobUrl"),
       salary: formData.get("salary"),
       status: formData.get("status"),
+      interviewDate: formData.get("interviewDate"),
+      interviewTime: formData.get("interviewTime"),
       notes: formData.get("notes"),
     };
 
