@@ -176,8 +176,24 @@ export default async function EditApplicationPage({ params }: PageProps) {
 
   const { id } = await params;
 
+  //   const application = await prisma.jobApplication.findUnique({
+  //     where: { id },
+  //   });
+
   const application = await prisma.jobApplication.findUnique({
     where: { id },
+    select: {
+      id: true,
+      company: true,
+      position: true,
+      location: true,
+      jobUrl: true,
+      salary: true,
+      status: true,
+      interviewDate: true,
+      interviewTime: true,
+      notes: true,
+    },
   });
 
   if (!application) {
