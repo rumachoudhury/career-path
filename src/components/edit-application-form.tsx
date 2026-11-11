@@ -12,7 +12,11 @@ type EditApplicationFormProps = {
     location: string | null;
     jobUrl: string | null;
     salary: string | null;
+    // status: string;
+    // notes: string | null;
     status: string;
+    interviewDate: Date | null;
+    interviewTime: string | null;
     notes: string | null;
   };
 };
