@@ -146,6 +146,36 @@ export default function EditApplicationForm({
             <option value="REJECTED">Rejected</option>
           </select>
         </div>
+
+        <div>
+          <label className="mb-2 block text-sm font-medium text-slate-700">
+            Interview Date
+          </label>
+          <input
+            type="date"
+            name="interviewDate"
+            defaultValue={
+              application.interviewDate
+                ? new Date(application.interviewDate)
+                    .toISOString()
+                    .split("T")[0]
+                : ""
+            }
+            className="w-full rounded-lg border border-slate-300 px-3 py-2.5 outline-none focus:border-blue-500"
+          />
+        </div>
+
+        <div>
+          <label className="mb-2 block text-sm font-medium text-slate-700">
+            Interview Time
+          </label>
+          <input
+            type="time"
+            name="interviewTime"
+            defaultValue={application.interviewTime ?? ""}
+            className="w-full rounded-lg border border-slate-300 px-3 py-2.5 outline-none focus:border-blue-500"
+          />
+        </div>
       </div>
 
       <div>
