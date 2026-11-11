@@ -40,6 +40,14 @@ export async function PATCH(request: Request, { params }: RouteContext) {
           salary: body.salary || null,
         }),
         ...(body.status !== undefined && { status: body.status }),
+        ...(body.interviewDate !== undefined && {
+          interviewDate: body.interviewDate
+            ? new Date(`${body.interviewDate}T00:00:00`)
+            : null,
+        }),
+        ...(body.interviewTime !== undefined && {
+          interviewTime: body.interviewTime || null,
+        }),
         ...(body.notes !== undefined && {
           notes: body.notes || null,
         }),
