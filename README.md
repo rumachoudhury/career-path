@@ -70,14 +70,6 @@ npm install
 Create a `.env` file in the project root. Add your own Neon database
 connection strings:
 
-```env
-DATABASE_URL="your_neon_pooled_connection_string"
-DIRECT_URL="your_neon_direct_connection_string"
-```
-
-Do not commit `.env` or share database credentials. Keep `.env` listed
-in `.gitignore`.
-
 ### 4. Generate the Prisma Client
 
 ```bash
