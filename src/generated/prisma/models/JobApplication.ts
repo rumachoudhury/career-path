@@ -33,6 +33,8 @@ export type JobApplicationMinAggregateOutputType = {
   salary: string | null
   status: $Enums.ApplicationStatus | null
   notes: string | null
+  interviewDate: Date | null
+  interviewTime: string | null
   appliedAt: Date | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -47,6 +49,8 @@ export type JobApplicationMaxAggregateOutputType = {
   salary: string | null
   status: $Enums.ApplicationStatus | null
   notes: string | null
+  interviewDate: Date | null
+  interviewTime: string | null
   appliedAt: Date | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -61,6 +65,8 @@ export type JobApplicationCountAggregateOutputType = {
   salary: number
   status: number
   notes: number
+  interviewDate: number
+  interviewTime: number
   appliedAt: number
   createdAt: number
   updatedAt: number
@@ -77,6 +83,8 @@ export type JobApplicationMinAggregateInputType = {
   salary?: true
   status?: true
   notes?: true
+  interviewDate?: true
+  interviewTime?: true
   appliedAt?: true
   createdAt?: true
   updatedAt?: true
@@ -91,6 +99,8 @@ export type JobApplicationMaxAggregateInputType = {
   salary?: true
   status?: true
   notes?: true
+  interviewDate?: true
+  interviewTime?: true
   appliedAt?: true
   createdAt?: true
   updatedAt?: true
@@ -105,6 +115,8 @@ export type JobApplicationCountAggregateInputType = {
   salary?: true
   status?: true
   notes?: true
+  interviewDate?: true
+  interviewTime?: true
   appliedAt?: true
   createdAt?: true
   updatedAt?: true
@@ -192,6 +204,8 @@ export type JobApplicationGroupByOutputType = {
   salary: string | null
   status: $Enums.ApplicationStatus
   notes: string | null
+  interviewDate: Date | null
+  interviewTime: string | null
   appliedAt: Date
   createdAt: Date
   updatedAt: Date
@@ -227,6 +241,8 @@ export type JobApplicationWhereInput = {
   salary?: Prisma.StringNullableFilter<"JobApplication"> | string | null
   status?: Prisma.EnumApplicationStatusFilter<"JobApplication"> | $Enums.ApplicationStatus
   notes?: Prisma.StringNullableFilter<"JobApplication"> | string | null
+  interviewDate?: Prisma.DateTimeNullableFilter<"JobApplication"> | Date | string | null
+  interviewTime?: Prisma.StringNullableFilter<"JobApplication"> | string | null
   appliedAt?: Prisma.DateTimeFilter<"JobApplication"> | Date | string
   createdAt?: Prisma.DateTimeFilter<"JobApplication"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"JobApplication"> | Date | string
@@ -241,6 +257,8 @@ export type JobApplicationOrderByWithRelationInput = {
   salary?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
+  interviewDate?: Prisma.SortOrderInput | Prisma.SortOrder
+  interviewTime?: Prisma.SortOrderInput | Prisma.SortOrder
   appliedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -258,6 +276,8 @@ export type JobApplicationWhereUniqueInput = Prisma.AtLeast<{
   salary?: Prisma.StringNullableFilter<"JobApplication"> | string | null
   status?: Prisma.EnumApplicationStatusFilter<"JobApplication"> | $Enums.ApplicationStatus
   notes?: Prisma.StringNullableFilter<"JobApplication"> | string | null
+  interviewDate?: Prisma.DateTimeNullableFilter<"JobApplication"> | Date | string | null
+  interviewTime?: Prisma.StringNullableFilter<"JobApplication"> | string | null
   appliedAt?: Prisma.DateTimeFilter<"JobApplication"> | Date | string
   createdAt?: Prisma.DateTimeFilter<"JobApplication"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"JobApplication"> | Date | string
@@ -272,6 +292,8 @@ export type JobApplicationOrderByWithAggregationInput = {
   salary?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
+  interviewDate?: Prisma.SortOrderInput | Prisma.SortOrder
+  interviewTime?: Prisma.SortOrderInput | Prisma.SortOrder
   appliedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -292,6 +314,8 @@ export type JobApplicationScalarWhereWithAggregatesInput = {
   salary?: Prisma.StringNullableWithAggregatesFilter<"JobApplication"> | string | null
   status?: Prisma.EnumApplicationStatusWithAggregatesFilter<"JobApplication"> | $Enums.ApplicationStatus
   notes?: Prisma.StringNullableWithAggregatesFilter<"JobApplication"> | string | null
+  interviewDate?: Prisma.DateTimeNullableWithAggregatesFilter<"JobApplication"> | Date | string | null
+  interviewTime?: Prisma.StringNullableWithAggregatesFilter<"JobApplication"> | string | null
   appliedAt?: Prisma.DateTimeWithAggregatesFilter<"JobApplication"> | Date | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"JobApplication"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"JobApplication"> | Date | string
@@ -306,6 +330,8 @@ export type JobApplicationCreateInput = {
   salary?: string | null
   status?: $Enums.ApplicationStatus
   notes?: string | null
+  interviewDate?: Date | string | null
+  interviewTime?: string | null
   appliedAt?: Date | string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -320,6 +346,8 @@ export type JobApplicationUncheckedCreateInput = {
   salary?: string | null
   status?: $Enums.ApplicationStatus
   notes?: string | null
+  interviewDate?: Date | string | null
+  interviewTime?: string | null
   appliedAt?: Date | string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -334,6 +362,8 @@ export type JobApplicationUpdateInput = {
   salary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumApplicationStatusFieldUpdateOperationsInput | $Enums.ApplicationStatus
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  interviewDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  interviewTime?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   appliedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -348,6 +378,8 @@ export type JobApplicationUncheckedUpdateInput = {
   salary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumApplicationStatusFieldUpdateOperationsInput | $Enums.ApplicationStatus
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  interviewDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  interviewTime?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   appliedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -362,6 +394,8 @@ export type JobApplicationCreateManyInput = {
   salary?: string | null
   status?: $Enums.ApplicationStatus
   notes?: string | null
+  interviewDate?: Date | string | null
+  interviewTime?: string | null
   appliedAt?: Date | string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -376,6 +410,8 @@ export type JobApplicationUpdateManyMutationInput = {
   salary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumApplicationStatusFieldUpdateOperationsInput | $Enums.ApplicationStatus
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  interviewDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  interviewTime?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   appliedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -390,6 +426,8 @@ export type JobApplicationUncheckedUpdateManyInput = {
   salary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumApplicationStatusFieldUpdateOperationsInput | $Enums.ApplicationStatus
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  interviewDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  interviewTime?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   appliedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -404,6 +442,8 @@ export type JobApplicationCountOrderByAggregateInput = {
   salary?: Prisma.SortOrder
   status?: Prisma.SortOrder
   notes?: Prisma.SortOrder
+  interviewDate?: Prisma.SortOrder
+  interviewTime?: Prisma.SortOrder
   appliedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -418,6 +458,8 @@ export type JobApplicationMaxOrderByAggregateInput = {
   salary?: Prisma.SortOrder
   status?: Prisma.SortOrder
   notes?: Prisma.SortOrder
+  interviewDate?: Prisma.SortOrder
+  interviewTime?: Prisma.SortOrder
   appliedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -432,6 +474,8 @@ export type JobApplicationMinOrderByAggregateInput = {
   salary?: Prisma.SortOrder
   status?: Prisma.SortOrder
   notes?: Prisma.SortOrder
+  interviewDate?: Prisma.SortOrder
+  interviewTime?: Prisma.SortOrder
   appliedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -449,6 +493,10 @@ export type EnumApplicationStatusFieldUpdateOperationsInput = {
   set?: $Enums.ApplicationStatus
 }
 
+export type NullableDateTimeFieldUpdateOperationsInput = {
+  set?: Date | string | null
+}
+
 export type DateTimeFieldUpdateOperationsInput = {
   set?: Date | string
 }
@@ -464,6 +512,8 @@ export type JobApplicationSelect<ExtArgs extends runtime.Types.Extensions.Intern
   salary?: boolean
   status?: boolean
   notes?: boolean
+  interviewDate?: boolean
+  interviewTime?: boolean
   appliedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -478,6 +528,8 @@ export type JobApplicationSelectCreateManyAndReturn<ExtArgs extends runtime.Type
   salary?: boolean
   status?: boolean
   notes?: boolean
+  interviewDate?: boolean
+  interviewTime?: boolean
   appliedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -492,6 +544,8 @@ export type JobApplicationSelectUpdateManyAndReturn<ExtArgs extends runtime.Type
   salary?: boolean
   status?: boolean
   notes?: boolean
+  interviewDate?: boolean
+  interviewTime?: boolean
   appliedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -506,12 +560,14 @@ export type JobApplicationSelectScalar = {
   salary?: boolean
   status?: boolean
   notes?: boolean
+  interviewDate?: boolean
+  interviewTime?: boolean
   appliedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type JobApplicationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "company" | "position" | "location" | "jobUrl" | "salary" | "status" | "notes" | "appliedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["jobApplication"]>
+export type JobApplicationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "company" | "position" | "location" | "jobUrl" | "salary" | "status" | "notes" | "interviewDate" | "interviewTime" | "appliedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["jobApplication"]>
 
 export type $JobApplicationPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "JobApplication"
@@ -525,6 +581,8 @@ export type $JobApplicationPayload<ExtArgs extends runtime.Types.Extensions.Inte
     salary: string | null
     status: $Enums.ApplicationStatus
     notes: string | null
+    interviewDate: Date | null
+    interviewTime: string | null
     appliedAt: Date
     createdAt: Date
     updatedAt: Date
@@ -959,6 +1017,8 @@ export interface JobApplicationFieldRefs {
   readonly salary: Prisma.FieldRef<"JobApplication", 'String'>
   readonly status: Prisma.FieldRef<"JobApplication", 'ApplicationStatus'>
   readonly notes: Prisma.FieldRef<"JobApplication", 'String'>
+  readonly interviewDate: Prisma.FieldRef<"JobApplication", 'DateTime'>
+  readonly interviewTime: Prisma.FieldRef<"JobApplication", 'String'>
   readonly appliedAt: Prisma.FieldRef<"JobApplication", 'DateTime'>
   readonly createdAt: Prisma.FieldRef<"JobApplication", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"JobApplication", 'DateTime'>
