@@ -132,10 +132,7 @@ career-path/
 
 ## Future Improvements
 
-- Add more detailed reporting and date-range analytics.
-- Improve the mobile navigation and small-screen experience.
-- Add deployment instructions and a live demo link when production
-  deployment is configured.
+live demo link when production
 
 ## Author
 
