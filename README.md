@@ -32,14 +32,6 @@ dashboard and analytics.
 
 ---
 
-Dashboard My Applications
-
----
-
-Interviews Analytics
-
----
-
 ### 1. Clone the repository
 
 ```bash
