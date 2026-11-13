@@ -36,21 +36,9 @@ Dashboard My Applications
 
 ---
 
-`![Dashboard](public/screenshots/dashboard.png)` `![My Applications](public/screenshots/applications.png)`
-
----
-
----
-
 Interviews Analytics
 
 ---
-
-`![Interviews](public/screenshots/interviews.png)` `![Analytics](public/screenshots/analytics.png)`
-
----
-
-## Getting Started
 
 ### 1. Clone the repository
 
