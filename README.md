@@ -30,11 +30,6 @@ dashboard and analytics.
 - [Neon](https://neon.tech/) serverless PostgreSQL
 - [Lucide React](https://lucide.dev/) icons
 
-## Screenshots
-
-Add screenshots of your running application to the `public/screenshots/`
-folder, then replace the image paths below with the matching filenames.
-
 ---
 
 Dashboard My Applications
