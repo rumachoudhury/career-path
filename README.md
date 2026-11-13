@@ -67,7 +67,7 @@ npm install
 
 ### 3. Configure environment variables
 
-Create a `.env` file in the project root. Add your own Neon database
+Create a `.env` file in the project root. Add Neon database
 connection strings:
 
 ### 4. Generate the Prisma Client
