@@ -64,12 +64,14 @@ export default async function Home() {
     ...monthlyActivity.map((item) => item.count),
     1,
   );
-  const initialDate = new Date().toLocaleDateString("en-US", {
+  const now = new Date();
+  const initialDate = now.toLocaleDateString("en-US", {
     weekday: "long",
     month: "long",
     day: "numeric",
     year: "numeric",
   });
+  const initialTodayKey = now.toISOString().slice(0, 10);
   const followUpReminders = applications
     .filter(
       (application) =>
@@ -307,7 +309,10 @@ export default async function Home() {
             </div>
           </section>
 
-          <FollowUpReminderList reminders={reminderList} />
+          <FollowUpReminderList
+            reminders={reminderList}
+            initialTodayKey={initialTodayKey}
+          />
         </div>
       </main>
     </div>

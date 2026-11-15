@@ -3,7 +3,7 @@
 import { Check } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 
 type FollowUpReminder = {
   id: string;
@@ -28,12 +28,23 @@ function dateKey(date: Date) {
   return `${year}-${month}-${day}`;
 }
 
-function getReminderStatus(followUpDate: string): ReminderStatus {
-  const today = dateKey(new Date());
-
+function getReminderStatus(
+  followUpDate: string,
+  today: string,
+): ReminderStatus {
   if (followUpDate < today) return "Overdue";
   if (followUpDate === today) return "Today";
   return "Upcoming";
+}
+
+function subscribe(onStoreChange: () => void) {
+  const intervalId = window.setInterval(onStoreChange, 60_000);
+
+  return () => window.clearInterval(intervalId);
+}
+
+function getLocalTodayKey() {
+  return dateKey(new Date());
 }
 
 function formatReminderDate(followUpDate: string) {
@@ -48,10 +59,17 @@ function formatReminderDate(followUpDate: string) {
 
 export default function FollowUpReminderList({
   reminders,
+  initialTodayKey,
 }: {
   reminders: FollowUpReminder[];
+  initialTodayKey: string;
 }) {
   const router = useRouter();
+  const todayKey = useSyncExternalStore(
+    subscribe,
+    getLocalTodayKey,
+    () => initialTodayKey,
+  );
   const [pendingId, setPendingId] = useState<string | null>(null);
   const [error, setError] = useState("");
 
@@ -90,7 +108,7 @@ export default function FollowUpReminderList({
       {reminders.length > 0 ? (
         <div className="divide-y divide-slate-100">
           {reminders.map((reminder) => {
-            const status = getReminderStatus(reminder.followUpDate);
+            const status = getReminderStatus(reminder.followUpDate, todayKey);
 
             return (
               <div
