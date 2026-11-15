@@ -6,33 +6,6 @@ import Link from "next/link";
 
 export const instant = false;
 
-const applications = [
-  {
-    company: "Google",
-    position: "Frontend Developer",
-    date: "Oct 29, 2026",
-    status: "Interview",
-  },
-  {
-    company: "Microsoft",
-    position: "Software Engineer",
-    date: "Oct 27, 2026",
-    status: "Applied",
-  },
-  {
-    company: "Amazon",
-    position: "Full Stack Developer",
-    date: "Oct 24, 2026",
-    status: "Rejected",
-  },
-  {
-    company: "Stripe",
-    position: "React Developer",
-    date: "Oct 22, 2026",
-    status: "Offer",
-  },
-];
-
 const statusStyles: Record<string, string> = {
   WISHLIST: "bg-slate-50 text-slate-700",
   APPLIED: "bg-blue-50 text-blue-700",
@@ -89,18 +62,22 @@ export default async function Home() {
     ...monthlyActivity.map((item) => item.count),
     1,
   );
+  const currentDate = new Date().toLocaleDateString("en-US", {
+    weekday: "long",
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  });
 
   return (
     <div className="flex min-h-screen bg-slate-50">
       <Sidebar />
 
-      <main className="min-w-0 flex-1">
+      <main className="min-w-0 flex-1 pb-24 md:pb-0">
         <header className="border-b border-slate-200 bg-white">
           <div className="flex h-20 items-center justify-between px-6 lg:px-8">
             <div>
-              <p className="text-sm text-slate-500">
-                Saturday, October 31, 2026
-              </p>
+              <p className="text-sm text-slate-500">{currentDate}</p>
               <h2 className="text-xl font-semibold text-slate-900">
                 Welcome back!
               </h2>
@@ -263,9 +240,12 @@ export default async function Home() {
                 </p>
               </div>
 
-              <button className="text-sm font-medium text-blue-600 hover:text-blue-700">
+              <Link
+                href="/applications"
+                className="text-sm font-medium text-blue-600 hover:text-blue-700"
+              >
                 View all
-              </button>
+              </Link>
             </div>
 
             <div className="divide-y divide-slate-100">

@@ -58,7 +58,7 @@ export default async function ApplicationsPage({
     <div className="flex min-h-screen bg-slate-50">
       <Sidebar />
 
-      <main className="min-w-0 flex-1">
+      <main className="min-w-0 flex-1 pb-24 md:pb-0">
         <header className="border-b border-slate-200 bg-white">
           <div className="px-6 py-6 lg:px-8">
             <h1 className="text-xl font-semibold text-slate-900">

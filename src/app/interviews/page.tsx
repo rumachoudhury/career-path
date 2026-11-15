@@ -20,7 +20,7 @@ export default async function InterviewsPage() {
     <div className="flex min-h-screen bg-slate-50">
       <Sidebar />
 
-      <main className="min-w-0 flex-1 p-6 md:p-8">
+      <main className="min-w-0 flex-1 p-6 pb-24 md:p-8 md:pb-8">
         <div className="mx-auto max-w-6xl">
           <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
             <div>
