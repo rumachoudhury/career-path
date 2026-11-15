@@ -17,8 +17,8 @@ dashboard and analytics.
   applications for each.
 - **Interviews** --- keep interview dates, times, locations, and
   related application details together.
-- **Follow-up reminders** --- schedule follow-up dates and see the
-  earliest reminders on the dashboard.
+- **Follow-up reminders** --- schedule, reschedule, or complete follow-ups
+  and see overdue, today, and upcoming reminders on the dashboard.
 - **Analytics** --- review application totals, status breakdowns, and
   job-search progress.
 

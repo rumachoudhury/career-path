@@ -53,6 +53,11 @@ export async function PATCH(request: Request, { params }: RouteContext) {
             ? new Date(`${body.followUpDate}T00:00:00`)
             : null,
         }),
+        ...(body.followUpCompletedAt !== undefined && {
+          followUpCompletedAt: body.followUpCompletedAt
+            ? new Date(body.followUpCompletedAt)
+            : null,
+        }),
         ...(body.notes !== undefined && {
           notes: body.notes || null,
         }),

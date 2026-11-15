@@ -35,6 +35,10 @@ export default function EditApplicationForm({
     setError("");
 
     const formData = new FormData(event.currentTarget);
+    const followUpDate = String(formData.get("followUpDate") ?? "");
+    const originalFollowUpDate = application.followUpDate
+      ? new Date(application.followUpDate).toISOString().split("T")[0]
+      : "";
 
     const data = {
       company: formData.get("company"),
@@ -45,7 +49,10 @@ export default function EditApplicationForm({
       status: formData.get("status"),
       interviewDate: formData.get("interviewDate"),
       interviewTime: formData.get("interviewTime"),
-      followUpDate: formData.get("followUpDate"),
+      followUpDate,
+      ...(followUpDate !== originalFollowUpDate && {
+        followUpCompletedAt: null,
+      }),
       notes: formData.get("notes"),
     };
 

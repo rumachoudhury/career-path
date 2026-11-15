@@ -1,6 +1,7 @@
 import { BriefcaseBusiness, CheckCircle2, Clock3, XCircle } from "lucide-react";
 import Sidebar from "@/components/sidebar";
 import LocalDate from "@/components/local-date";
+import FollowUpReminderList from "@/components/follow-up-reminder-list";
 import { prisma } from "@/lib/prisma";
 import { connection } from "next/server";
 import Link from "next/link";
@@ -70,13 +71,23 @@ export default async function Home() {
     year: "numeric",
   });
   const followUpReminders = applications
-    .filter((application) => Boolean(application.followUpDate))
+    .filter(
+      (application) =>
+        Boolean(application.followUpDate) &&
+        !application.followUpCompletedAt,
+    )
     .sort(
       (left, right) =>
         (left.followUpDate?.getTime() ?? 0) -
         (right.followUpDate?.getTime() ?? 0),
     )
     .slice(0, 5);
+  const reminderList = followUpReminders.map((application) => ({
+    id: application.id,
+    company: application.company,
+    position: application.position,
+    followUpDate: application.followUpDate?.toISOString().slice(0, 10) ?? "",
+  }));
 
   return (
     <div className="flex min-h-screen bg-slate-50">
@@ -297,63 +308,7 @@ export default async function Home() {
             </div>
           </section>
 
-          <section className="mt-8 rounded-xl border border-slate-200 bg-white">
-            <div className="border-b border-slate-200 px-6 py-5">
-              <h3 className="font-semibold text-slate-900">
-                Follow-up reminders
-              </h3>
-              <p className="mt-1 text-sm text-slate-500">
-                Applications with a scheduled follow-up date.
-              </p>
-            </div>
-
-            {followUpReminders.length > 0 ? (
-              <div className="divide-y divide-slate-100">
-                {followUpReminders.map((application) => (
-                  <div
-                    key={application.id}
-                    className="flex flex-col gap-3 px-6 py-5 sm:flex-row sm:items-center sm:justify-between"
-                  >
-                    <div>
-                      <h4 className="font-medium text-slate-900">
-                        {application.company}
-                      </h4>
-                      <p className="mt-1 text-sm text-slate-500">
-                        {application.position}
-                      </p>
-                    </div>
-                    <div className="flex items-center justify-between gap-4 sm:justify-end">
-                      <time className="text-sm text-slate-600">
-                        {application.followUpDate?.toLocaleDateString("en-US", {
-                          month: "short",
-                          day: "numeric",
-                          year: "numeric",
-                        })}
-                      </time>
-                      <Link
-                        href={`/applications/${application.id}`}
-                        className="text-sm font-medium text-blue-600 hover:text-blue-700"
-                      >
-                        Edit
-                      </Link>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <div className="px-6 py-8 text-center">
-                <p className="text-sm text-slate-500">
-                  No follow-ups scheduled.
-                </p>
-                <Link
-                  href="/applications"
-                  className="mt-3 inline-block text-sm font-medium text-blue-600 hover:text-blue-700"
-                >
-                  Add a follow-up date
-                </Link>
-              </div>
-            )}
-          </section>
+          <FollowUpReminderList reminders={reminderList} />
         </div>
       </main>
     </div>

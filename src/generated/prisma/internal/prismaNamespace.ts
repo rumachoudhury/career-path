@@ -542,6 +542,7 @@ export const JobApplicationScalarFieldEnum = {
   interviewDate: 'interviewDate',
   interviewTime: 'interviewTime',
   followUpDate: 'followUpDate',
+  followUpCompletedAt: 'followUpCompletedAt',
   appliedAt: 'appliedAt',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
