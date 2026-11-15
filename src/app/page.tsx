@@ -73,8 +73,7 @@ export default async function Home() {
   const followUpReminders = applications
     .filter(
       (application) =>
-        Boolean(application.followUpDate) &&
-        !application.followUpCompletedAt,
+        Boolean(application.followUpDate) && !application.followUpCompletedAt,
     )
     .sort(
       (left, right) =>

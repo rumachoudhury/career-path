@@ -150,7 +150,10 @@ export default function FollowUpReminderList({
       )}
 
       {error && (
-        <p role="alert" className="border-t border-slate-100 px-6 py-3 text-sm text-red-600">
+        <p
+          role="alert"
+          className="border-t border-slate-100 px-6 py-3 text-sm text-red-600"
+        >
           {error}
         </p>
       )}
