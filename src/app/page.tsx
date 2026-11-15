@@ -1,5 +1,6 @@
 import { BriefcaseBusiness, CheckCircle2, Clock3, XCircle } from "lucide-react";
 import Sidebar from "@/components/sidebar";
+import LocalDate from "@/components/local-date";
 import { prisma } from "@/lib/prisma";
 import { connection } from "next/server";
 import Link from "next/link";
@@ -62,7 +63,7 @@ export default async function Home() {
     ...monthlyActivity.map((item) => item.count),
     1,
   );
-  const currentDate = new Date().toLocaleDateString("en-US", {
+  const initialDate = new Date().toLocaleDateString("en-US", {
     weekday: "long",
     month: "long",
     day: "numeric",
@@ -77,7 +78,9 @@ export default async function Home() {
         <header className="border-b border-slate-200 bg-white">
           <div className="flex h-20 items-center justify-between px-6 lg:px-8">
             <div>
-              <p className="text-sm text-slate-500">{currentDate}</p>
+              <p className="text-sm text-slate-500">
+                <LocalDate initialDate={initialDate} />
+              </p>
               <h2 className="text-xl font-semibold text-slate-900">
                 Welcome back!
               </h2>
