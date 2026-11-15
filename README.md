@@ -17,6 +17,8 @@ dashboard and analytics.
   applications for each.
 - **Interviews** --- keep interview dates, times, locations, and
   related application details together.
+- **Follow-up reminders** --- schedule follow-up dates and see the
+  earliest reminders on the dashboard.
 - **Analytics** --- review application totals, status breakdowns, and
   job-search progress.
 
@@ -63,6 +65,13 @@ migrations:
 
 ```bash
 npx prisma migrate dev
+```
+
+For a deployed database, apply pending migrations before deploying the
+application update:
+
+```bash
+npx prisma migrate deploy
 ```
 
 ### 6. Start the development server

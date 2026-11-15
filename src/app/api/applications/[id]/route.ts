@@ -48,6 +48,11 @@ export async function PATCH(request: Request, { params }: RouteContext) {
         ...(body.interviewTime !== undefined && {
           interviewTime: body.interviewTime || null,
         }),
+        ...(body.followUpDate !== undefined && {
+          followUpDate: body.followUpDate
+            ? new Date(`${body.followUpDate}T00:00:00`)
+            : null,
+        }),
         ...(body.notes !== undefined && {
           notes: body.notes || null,
         }),

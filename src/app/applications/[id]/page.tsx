@@ -192,6 +192,7 @@ export default async function EditApplicationPage({ params }: PageProps) {
       status: true,
       interviewDate: true,
       interviewTime: true,
+      followUpDate: true,
       notes: true,
     },
   });

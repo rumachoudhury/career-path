@@ -68,6 +68,9 @@ export async function POST(request: Request) {
           : null,
 
         interviewTime: body.interviewTime || null,
+        followUpDate: body.followUpDate
+          ? new Date(`${body.followUpDate}T00:00:00`)
+          : null,
         notes: body.notes || null,
       },
     });

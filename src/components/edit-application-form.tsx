@@ -17,6 +17,7 @@ type EditApplicationFormProps = {
     status: string;
     interviewDate: Date | null;
     interviewTime: string | null;
+    followUpDate: Date | null;
     notes: string | null;
   };
 };
@@ -44,6 +45,7 @@ export default function EditApplicationForm({
       status: formData.get("status"),
       interviewDate: formData.get("interviewDate"),
       interviewTime: formData.get("interviewTime"),
+      followUpDate: formData.get("followUpDate"),
       notes: formData.get("notes"),
     };
 
@@ -173,6 +175,22 @@ export default function EditApplicationForm({
             type="time"
             name="interviewTime"
             defaultValue={application.interviewTime ?? ""}
+            className="w-full rounded-lg border border-slate-300 px-3 py-2.5 outline-none focus:border-blue-500"
+          />
+        </div>
+
+        <div>
+          <label className="mb-2 block text-sm font-medium text-slate-700">
+            Follow-up Date
+          </label>
+          <input
+            type="date"
+            name="followUpDate"
+            defaultValue={
+              application.followUpDate
+                ? new Date(application.followUpDate).toISOString().split("T")[0]
+                : ""
+            }
             className="w-full rounded-lg border border-slate-300 px-3 py-2.5 outline-none focus:border-blue-500"
           />
         </div>

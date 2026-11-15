@@ -26,6 +26,7 @@ export default function ApplicationForm() {
       status: formData.get("status"),
       interviewDate: formData.get("interviewDate"),
       interviewTime: formData.get("interviewTime"),
+      followUpDate: formData.get("followUpDate"),
       notes: formData.get("notes"),
     };
 
@@ -147,6 +148,17 @@ export default function ApplicationForm() {
           <input
             type="time"
             name="interviewTime"
+            className="w-full rounded-lg border border-slate-300 px-3 py-2.5 outline-none focus:border-blue-500"
+          />
+        </div>
+
+        <div>
+          <label className="mb-2 block text-sm font-medium text-slate-700">
+            Follow-up Date
+          </label>
+          <input
+            type="date"
+            name="followUpDate"
             className="w-full rounded-lg border border-slate-300 px-3 py-2.5 outline-none focus:border-blue-500"
           />
         </div>
