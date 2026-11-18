@@ -42,18 +42,16 @@ npm install
 CareerPath uses a PostgreSQL database hosted on Neon.
 
 1. Create a project in [Neon](https://neon.tech/).
-2. Open your Neon project and get the database connection strings.
+2. Retrieve the pooled and direct PostgreSQL connection strings from the Neon dashboard.
 3. Create a `.env` file in the root of the project.
-4. Add your connection strings:
+4. Add connection strings:
 
 ```env
-DATABASE_URL="your-neon-pooled-connection-string"
-DIRECT_URL="your-neon-direct-connection-string"
+DATABASE_URL="Neon pooled connection string"
+DIRECT_URL="Neon direct connection string"
 ```
-
 Replace the example values with your actual Neon connection strings.
-
-**Important:** Never commit your `.env` file or expose your database credentials on GitHub.
+**Important:** Never commit the `.env` file or expose database credentials on GitHub.
 
 ### 4. Generate the Prisma Client
 
